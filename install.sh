@@ -4,7 +4,7 @@ CWD=`pwd`
 BUILD=$CWD"/build"
 EMACS_GIT="https://github.com/emacs-mirror/emacs.git"
 
-sudo apt-get install libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-dev libssl-dev libgnutls28-dev libncurses5-dev
+sudo apt-get install build-essential libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-dev libssl-dev libgnutls28-dev libncurses5-dev
 
 if [[ ! -d $BUILD ]]
 then
