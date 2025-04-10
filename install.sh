@@ -4,7 +4,13 @@ CWD=`pwd`
 BUILD=$CWD"/build"
 EMACS_GIT="https://github.com/emacs-mirror/emacs.git"
 
-sudo apt-get install build-essential libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-dev libssl-dev libgnutls28-dev libncurses5-dev texinfo
+INSTALL_PATH=${HOME}/opt/emacs
+BIN_PATH=${HOME}/opt/bin
+
+echo ${INSTALL_PATH}
+
+
+sudo apt-get install build-essential libgtk-3-dev libxpm-dev libjpeg-dev libgif-dev libtiff-dev libssl-dev libgnutls28-dev libncurses5-dev texinfo autoconf
 
 if [[ ! -d $BUILD ]]
 then
@@ -18,7 +24,7 @@ pushd $BUILD
     git clone $EMACS_GIT $BUILD
   fi
   ./autogen.sh
-  ./configure --with-x
+  ./configure --prefix=$INSTALL_PATH --bindir=$BIN_PATH --with-x
   make
-  sudo make install
+  make install
 popd
